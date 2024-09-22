@@ -130,7 +130,7 @@ SELECT * FROM seguros_viviendas;
 #################################################### VISTAS ####################################################
 
 -- SE CREA LA VISTA PARA VER QUE SERVICIO CONTRATO CADA USUARIO -- 
-CREATE OR REPLACE VIEW servicio_contratado_vw AS
+CREATE OR REPLACE VIEW AS
 SELECT u.nombre_de_usuario, u.nombre, s.id_producto, s.tipo
 FROM usuario AS u JOIN servicios AS s ;
 
@@ -169,7 +169,7 @@ SELECT * FROM ultimos_pedidos_vw;
 #################################################### STORED PROCEDURES ####################################################
 -- STORED PROCEDURE PARA ORDENAR LAS TABLAS --
 DELIMITER $$
-CREATE PROCEDURE ordenar_tablas_sp (IN tabla VARCHAR (20), IN campo VARCHAR (20), IN orden VARCHAR (4))
+CREATE PROCEDURE ordenar_tablas_sp (IN tabla VARCHAR (50), IN campo VARCHAR (20), IN orden VARCHAR (4))
 BEGIN
 SET @ordenar = CONCAT( 'SELECT * FROM', ' ', tabla, ' ','ORDER BY',' ', campo,' ', orden);
 PREPARE consulta FROM @ordenar;
